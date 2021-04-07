@@ -44,15 +44,9 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
-    categories = df.iloc[:, 4:].columns
+    categories = df.columns[4:]
     categories_bool = (df.iloc[:, 4:] != 0).sum().values
     
-    # Distribution of categories 
-    category_cols = list(df.columns[4:])
-    category_counts = []
-    for col in category_cols:
-        category_counts.append(np.sum(df[col]))
-        
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -88,13 +82,10 @@ def index():
             'layout': {
                 'title': 'Distribution of Message Categories',
                 'yaxis': {
-                    'title': "Count",
-                    'automargin': True
+                    'title': "Count"
                 },
                 'xaxis': {
-                    'title': "Category",
-                    'tickangle': 35,
-                    'automargin': True
+                    'title': "Category"
                 }
             }
         }
