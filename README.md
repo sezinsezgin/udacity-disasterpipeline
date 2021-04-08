@@ -52,3 +52,8 @@ Following is the description of files in this repository
 - SQLAlchemy : Creates the SQLite database 
 - Jupyter Notebook : Scripts for ML Pipeline was created by using this
 
+#### Acknowledgments
+
+-Udacity, the provider of the outline of the project and part of code.
+-Figure Eight, the owner andd provider of underlying data
+
