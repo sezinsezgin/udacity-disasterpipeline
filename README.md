@@ -54,6 +54,6 @@ Following is the description of files in this repository
 
 #### Acknowledgments
 
--Udacity, the provider of the outline of the project and part of code.
--Figure Eight, the owner andd provider of underlying data
+- Udacity, the provider of the outline of the project and part of code.
+- Figure Eight, the owner andd provider of underlying data
 
