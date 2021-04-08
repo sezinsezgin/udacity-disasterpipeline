@@ -20,6 +20,15 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    
+    """Cleans the data for categories and messages by splitting categories,
+    turning them in binaries and dropping duplicates
+    Returns:
+        df (DataFrame): clean dataframe 
+    Args:
+        df (DataFrame) : df before cleaning
+    """    
+    
     # create a dataframe of the individual category columns
     categories = df.categories.str.split(';', expand = True)
     # select the first row of the categories dataframe
@@ -27,12 +36,14 @@ def clean_data(df):
     # use this row to extract a list of new column names for categories.
     category_colnames = [x[:-2] for x in row]
     categories.columns = category_colnames
+    
     #convert category values to 0 and 1s
     for column in categories:
         # set each value to be the last character of the string
         categories[column] = categories[column].str.slice(start=-1)        
         # convert column from string to numeric
         categories[column] = categories[column].astype(int)
+        
     # drop the original categories column from `df`
     df=df.drop('categories', axis=1)
     # concatenate the original dataframe with the new `categories` dataframe
