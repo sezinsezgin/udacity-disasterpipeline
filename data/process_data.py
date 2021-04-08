@@ -36,6 +36,8 @@ def clean_data(df):
     # use this row to extract a list of new column names for categories.
     category_colnames = [x[:-2] for x in row]
     categories.columns = category_colnames
+    #remove outliers
+    categories=categories[categories['related']!='related-2']
     
     #convert category values to 0 and 1s
     for column in categories:
@@ -62,7 +64,7 @@ def save_data(df, database_filename):
     """    
     
     engine = create_engine('sqlite:///' + database_filename)
-    df.to_sql('CleanedMessages', engine, index=False, if_exist='replace')
+    df.to_sql('CleanedMessages', engine, index=False, if_exists='replace')
 
 
 def main():
